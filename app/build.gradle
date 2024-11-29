@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.cameraandocr'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.cameraandocr"
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    dependencies {
+        // CameraX 核心库
+        implementation 'androidx.camera:camera-core:1.2.0'
+
+        // CameraX 摄像头库
+        implementation 'androidx.camera:camera-camera2:1.2.0'
+
+        // CameraX 预览库
+        implementation 'androidx.camera:camera-lifecycle:1.2.0'
+
+        // CameraX 视图库
+        implementation 'androidx.camera:camera-view:1.2.0' // 使用较新的稳定版本
+
+        // ML Kit 文本识别
+        // To recognize Latin script
+        implementation 'com.google.mlkit:text-recognition:16.0.1'
+
+        // To recognize Chinese script
+        implementation 'com.google.mlkit:text-recognition-chinese:16.0.1'
+    }
+
+}
